@@ -21,6 +21,7 @@ import {
   COMMAND_PRIORITY_LOW,
   KEY_ARROW_RIGHT_COMMAND,
   KEY_TAB_COMMAND,
+  RootNode,
 } from 'lexical';
 import {useCallback, useEffect} from 'react';
 
@@ -208,7 +209,7 @@ export default function AutocompletePlugin(): JSX.Element | null {
         AutocompleteNode,
         $handleAutocompleteNodeTransform,
       ),
-      editor.registerUpdateListener(handleUpdate),
+      editor.registerNodeTransform(RootNode, handleUpdate),
       editor.registerCommand(
         KEY_TAB_COMMAND,
         $handleKeypressCommand,
